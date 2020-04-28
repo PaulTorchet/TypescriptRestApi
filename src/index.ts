@@ -7,6 +7,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 
+import connect from './config/mongoose.config';
+
 import { itemRouter } from "./routers/item.router";
 
 import { errorHandler } from "./middleware/error.middleware";
@@ -45,6 +47,8 @@ app.use(notFoundHandler);
  * Server Activation
 */
 
+connect();
+
 const server = app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  console.log(`[Express] Listening on port ${PORT}`);
 });
