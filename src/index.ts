@@ -31,22 +31,27 @@ const app = express();
 
 
 /**
- *  App Configuration
+ *  App Configuration / Routes
 */
 
+// App Configuration
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+
+// Routes de l'API
 app.use('/items', itemRouter);
 
+// Routes d'erreur, à laisser après les routes d'API
 app.use(errorHandler);
 app.use(notFoundHandler);
 
 
 /**
- * Server Activation
+ * Server / DB Activation
 */
 
+// Connexion à la base de donnée via Mongoose
 connect();
 
 const server = app.listen(PORT, () => {
