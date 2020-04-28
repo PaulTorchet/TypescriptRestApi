@@ -6,7 +6,7 @@ export const notFoundHandler = (
     next: NextFunction
 ) => {
 
-    const message = 'Ressource non trouvée';
+    const message = 'Ressource non trouvée / Route non définie ?';
 
     response.status(404).send(message);
     
