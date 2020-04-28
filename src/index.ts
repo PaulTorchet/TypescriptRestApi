@@ -6,7 +6,9 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { itemsRouter } from "./items/items.router";
+
+import { itemRouter } from "./routers/item.router";
+
 import { errorHandler } from "./middleware/error.middleware";
 import { notFoundHandler } from "./middleware/notFound.middleware";
 
@@ -33,7 +35,7 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use('/items', itemsRouter);
+app.use('/items', itemRouter);
 
 app.use(errorHandler);
 app.use(notFoundHandler);

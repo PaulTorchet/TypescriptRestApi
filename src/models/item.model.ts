@@ -11,7 +11,6 @@ mongoose.connect(uri, (error: any) => {
 });
 
 export interface ItemInterface extends mongoose.Document {
-    id: number;
     name: string;
     price: number;
     description: string;
@@ -19,7 +18,6 @@ export interface ItemInterface extends mongoose.Document {
 }
 
 export const ItemSchema = new mongoose.Schema({
-    id: {type: Number, required: true},
     name: {type: String, required: true},
     price: {type: Number, required: true},
     description: {type: String, required: true},
